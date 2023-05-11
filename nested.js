@@ -9,7 +9,3 @@ export function getUserData() {
 function setUserData(user) {
   console.log("Setting user data");
 }
-
-export const exportedForTesting = {
-  setUserData,
-};

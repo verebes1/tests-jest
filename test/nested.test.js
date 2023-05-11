@@ -1,12 +1,14 @@
-import __RewireAPI__, { getUserData, exportedForTesting } from "../nested";
-let storeUserDataSpy = jest.spyOn(exportedForTesting, "setUserData");
+import __RewireAPI__, { getUserData } from "../nested";
+let setUserDataSpy = jest.fn();
 
 describe("Get user data calls child method", () => {
   it("should call the child method", async () => {
-    __RewireAPI__.__Rewire__("setUserData", storeUserDataSpy);
+    __RewireAPI__.__Rewire__("setUserData", setUserDataSpy);
     getUserData();
-    expect(storeUserDataSpy).toHaveBeenCalledTimes(1);
+    expect(setUserDataSpy).toHaveBeenCalledTimes(1);
     getUserData();
-    expect(storeUserDataSpy).toHaveBeenCalledTimes(2);
+    expect(setUserDataSpy).toHaveBeenCalledTimes(2);
+    getUserData();
+    expect(setUserDataSpy).toHaveBeenCalledTimes(3);
   });
 });
