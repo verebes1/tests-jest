@@ -6,7 +6,7 @@ let storeUserDataSpy = jest.spyOn(exportedForTesting, "setUserData");
 
 describe("Get user data calls child method", () => {
   it("should call the child method", async () => {
-    await getUserData();
+    getUserData();
     expect(storeUserDataSpy).toHaveBeenCalledTimes(1);
   });
 });
