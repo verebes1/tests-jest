@@ -1,12 +1,9 @@
-import { getUserData, exportedForTesting } from "../nested";
-
-// const { setUserData } = exportedForTesting;
-
-let storeUserDataSpy = jest.spyOn(exportedForTesting, "setUserData");
+import * as nested from "../nested";
+let storeUserDataSpy = jest.spyOn(nested, "setUserData");
 
 describe("Get user data calls child method", () => {
   it("should call the child method", async () => {
-    getUserData();
+    nested.getUserData();
     expect(storeUserDataSpy).toHaveBeenCalledTimes(1);
   });
 });

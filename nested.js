@@ -6,10 +6,6 @@ export function getUserData() {
   setUserData(user);
 }
 
-function setUserData(user) {
+export function setUserData(user) {
   console.log("Setting user data");
 }
-
-export const exportedForTesting = {
-  setUserData,
-};
